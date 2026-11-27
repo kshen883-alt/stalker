@@ -61,7 +61,10 @@ class RecipeDelivery {
     time = DateTime.fromMillisecondsSinceEpoch(int.parse(deliveryTime) * 1000);
     this.itemLevel = int.parse(itemLevel);
     this.playerLevel = int.parse(playerLevel);
-    this.tier = RecipeEnchantmentTier.values.firstWhere((e) => e.name == tier);
+   this.tier = RecipeEnchantmentTier.values.firstWhere(
+  (e) => e.name == tier,
+  orElse: () => RecipeEnchantmentTier.values.first,
+);
   }
 }
 
